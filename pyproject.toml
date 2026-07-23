@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kachanios-public"
+version = "0.2.0"
+description = "Privacy-safe public edition of the KachaniOS modular AI-agent architecture"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Abdellah Kachani" }]
+dependencies = [
+  "python-dotenv>=1.0",
+  "requests>=2.31",
+  "openai>=1.0",
+]
+
+[project.scripts]
+kachanios = "kachanios.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["kachanios*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
